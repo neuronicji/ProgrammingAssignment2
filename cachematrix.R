@@ -18,6 +18,12 @@
 ## its inverse.
 
 # This function creates a special "matrix" object that can cache its inverse.
+
+## The function creates a closure that stores a matrix and its inverse, provides 
+## methods to set and retrieve both, and uses <<- to ensure these values are 
+## maintained in the parent environment for persistent caching across function 
+## calls.
+
 makeCacheMatrix <- function(x = matrix()) {
         
         # Initialize the inverse property to NULL
@@ -43,7 +49,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve retrieves the cached inverse of a matrix or computes and stores 
+## it if not already cached.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
